@@ -14,4 +14,16 @@ The goal of this exercise is to assess your understanding of basic frontend prog
 
 ```
 npm create vue@latest
-`
+```
+
+### Run installation
+
+```
+npm install
+```
+
+### Format code with Prettier
+
+```
+npm run format
+```
