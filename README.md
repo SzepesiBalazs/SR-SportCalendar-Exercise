@@ -27,3 +27,8 @@ npm install
 ```
 npm run format
 ```
+
+### Start the application and open the local host in your browser
+```
+npm run dev
+```
