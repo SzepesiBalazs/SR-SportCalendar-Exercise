@@ -1,5 +1,5 @@
-<script setup lang="ts"></script>
-
 <template>
-  <main></main>
+  <div>
+    <h1>This is an about pagee</h1>
+  </div>
 </template>
