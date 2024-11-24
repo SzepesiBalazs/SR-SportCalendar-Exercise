@@ -44,4 +44,13 @@ npx tailwindcss init
 
 # Exercise-1
 
-![](https://github.com/SzepesiBalazs/SR-SportCalendar-Exercise/blob/exercise-1/MockUpImages/Calender_preview.png)
+![Calendar view mockup](https://github.com/SzepesiBalazs/SR-SportCalendar-Exercise/blob/exercise-1/MockUpImages/Calender_preview.png)
+
+- Create navigation with calendar view on page load.
+- Create new page for "Add event".
+- Create a function to get current month and days dynamically.
+- Create a header element to display year and current month.
+- Create a body element to display day and events.
+- Adds day elements to grid layout using Tailwind.
+- Style a single day with the date and events.
+- Adapt styling for responsiveness
