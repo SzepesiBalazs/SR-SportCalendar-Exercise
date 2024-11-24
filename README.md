@@ -1,4 +1,5 @@
 # SR-SportCalendar-Exercise
+
 The goal of this exercise is to assess your understanding of basic frontend programming concepts, including building user interfaces, handling user interactions, and ensuring responsiveness across devices. You will create a sports event calendar that displays events, allows users to view event details, and lets users add new events during runtime.
 
 ## Tech-Stack
@@ -14,4 +15,29 @@ The goal of this exercise is to assess your understanding of basic frontend prog
 
 ```
 npm create vue@latest
-`
+```
+
+### Run installation
+
+```
+npm install
+```
+
+### Format code with Prettier
+
+```
+npm run format
+```
+
+### Start the application and open the local host in your browser
+
+```
+npm run dev
+```
+
+### Download and install Tailwind
+
+```
+npm install -D tailwindcss
+npx tailwindcss init
+```
