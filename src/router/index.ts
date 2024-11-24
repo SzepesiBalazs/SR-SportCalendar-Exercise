@@ -3,7 +3,7 @@ import EventCalendar from '../views/EventCalendar.vue'
 import AddEvent from '../views/AddEvent.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory('/'),
   routes: [
     {
       path: '/',
@@ -11,8 +11,8 @@ const router = createRouter({
       component: EventCalendar,
     },
     {
-      path: '/about',
-      name: 'about',
+      path: '/add-event',
+      name: 'add-event',
       component: AddEvent,
     },
   ],
