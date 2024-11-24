@@ -41,3 +41,7 @@ npm run dev
 npm install -D tailwindcss
 npx tailwindcss init
 ```
+
+# Exercise-1
+
+![](https://github.com/SzepesiBalazs/SR-SportCalendar-Exercise/blob/exercise-1/MockUpImages/Calender_preview.png)
