@@ -8,9 +8,10 @@
     <div
       v-for="day in numberOfDays"
       :key="day"
-      class="box-content md:h-32 md:w-32 h-64 w-64 p-4 m-2 border-4"
+      class="box-content md:h-48 md:w-48 lg:h-64 lg:w-64 sm:h-64 sm:w-64 p-4 m-2 border-4 grid grid-cols-3"
     >
-      {{ day }}
+      <p class="col-span-1">{{ day }}</p>
+      <p class="col-span-2">18:30, Football, Salzburg vs. Sturm</p>
     </div>
   </div>
 </template>
