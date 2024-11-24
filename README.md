@@ -35,7 +35,7 @@ npm run format
 npm run dev
 ```
 
-### Download and install Tailwind application
+### Download and install Tailwind
 
 ```
 npm install -D tailwindcss
