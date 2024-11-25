@@ -8,17 +8,22 @@
     <div
       v-for="dayObject in daysArray"
       :key="dayObject.day"
-      class="box-content md:h-48 md:w-48 lg:h-64 lg:w-64 sm:h-64 sm:w-64 p-4 m-2 border-4 grid grid-cols-3"
+      class="box-content md:h-48 md:w-48 lg:h-64 lg:w-64 sm:h-64 sm:w-64 m-2 border-4 grid grid-rows-3 hover:scale-105 rounded-2xl"
+      :class="[dayObject.events.length ? 'bg-sky-100' : 'bg-gray-400']"
     >
-      <div class="col-span-1">
-        <p>{{ dayObject.day }}</p>
+      <div class="row-span-1 bg-blue-200 grid grid-cols-2">
+        <p class="text-5xl col-span-1 text-left m-2">{{ dayObject.nameOfDay }}</p>
+        <p class="text-5xl col-span-1 text-right m-2">{{ dayObject.day }}</p>
       </div>
-      <div class="col-span-2">
-        <div v-for="(event, index) in dayObject.events" :key="index">
-          <p>
+
+      <div class="row-span-2 place-content-center">
+        <div class="grid grid-cols-5" v-for="(event, index) in dayObject.events" :key="index">
+          <p class="cols-span-1 font-bold place-content-center">
+            {{ formatingUTCTime(event.timeVenueUTC) }}
+          </p>
+          <p class="col-span-4">
             {{ validateCompetitor(event.homeTeam) }} vs {{ validateCompetitor(event.awayTeam) }}
           </p>
-          <p>{{ formatingUTCTime(event.timeVenueUTC) }}</p>
         </div>
       </div>
     </div>
@@ -44,13 +49,14 @@ export default {
 
       for (let day = 1; day <= daysInMonth; day++) {
         const date = dayjs().date(day).format('YYYY-MM-DD')
-        console.log(calendarData.value.data)
+        const test = dayjs(date)
         const events = calendarData.value.data.filter((data) => data.dateVenue === date)
 
         daysArray.value.push({
           day: day.toString().padStart(2, '0'),
           date: date,
           events: events,
+          nameOfDay: test.format('ddd').toUpperCase(),
         })
       }
     }
