@@ -1,6 +1,7 @@
 {
   "data": [
     {
+      "id": 1,
       "season": 2024,
       "status": "played",
       "timeVenueUTC": "00:00:00",
@@ -42,8 +43,9 @@
       "originCompetitionName": "AFC Champions League"
     },
     {
+      "id": 2,
       "season": 2024,
-      "status": "scheduled",
+      "statu3": "scheduled",
       "timeVenueUTC": "16:00:00",
       "dateVenue": "2024-11-03",
       "stadium": null,
@@ -85,6 +87,7 @@
       "originCompetitionName": "AFC Champions League"
     },
     {
+      "id": 3,
       "season": 2024,
       "status": "scheduled",
       "timeVenueUTC": "15:25:00",
@@ -128,6 +131,7 @@
       "originCompetitionName": "AFC Champions League"
     },
     {
+      "id": 4,
       "season": 2024,
       "status": "scheduled",
       "timeVenueUTC": "08:00:00",
@@ -171,6 +175,7 @@
       "originCompetitionName": "AFC Champions League"
     },
     {
+      "id": 5,
       "season": 2024,
       "status": "scheduled",
       "timeVenueUTC": "00:00:00",
@@ -196,6 +201,7 @@
       "originCompetitionName": "AFC Champions League"
     },
     {
+      "id": 6,
       "season": 2024,
       "status": "played",
       "timeVenueUTC": "00:00:00",
@@ -213,7 +219,7 @@
         "name": "Persepolis",
         "officialName": "Persepolis FC",
         "slug": "persepolis-fc",
-        "abbreviation": "PER",
+        "abb3eviation": "PER",
         "teamCountryCode": "IRN",
         "stagePosition": null
       },
@@ -237,8 +243,9 @@
       "originCompetitionName": "AFC Champions League"
     },
     {
+      "id": 7,
       "season": 2024,
-      "status": "played",
+      "statu3": "played",
       "timeVenueUTC": "00:00:00",
       "dateVenue": "2024-12-02",
       "stadium": null,
@@ -278,8 +285,9 @@
       "originCompetitionName": "AFC Champions League"
     },
     {
+      "id": 8,
       "season": 2024,
-      "status": "played",
+      "statu3": "played",
       "timeVenueUTC": "00:00:00",
       "dateVenue": "2024-12-03",
       "stadium": null,
@@ -319,8 +327,9 @@
       "originCompetitionName": "AFC Champions League"
     },
     {
+      "id": 9,
       "season": 2024,
-      "status": "played",
+      "statu3": "played",
       "timeVenueUTC": "00:00:00",
       "dateVenue": "2024-12-05",
       "stadium": null,
@@ -360,8 +369,9 @@
       "originCompetitionName": "AFC Champions League"
     },
     {
+      "id": 10,
       "season": 2024,
-      "status": "played",
+      "statu3": "played",
       "timeVenueUTC": "00:00:00",
       "dateVenue": "2024-12-06",
       "stadium": null,

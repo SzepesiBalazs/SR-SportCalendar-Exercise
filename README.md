@@ -57,9 +57,9 @@ npx tailwindcss init
 
 # Exercise-2
 
-![Day view mockup](https://github.com/SzepesiBalazs/SR-SportCalendar-Exercise/blob/exercise-1/MockUpImages/Day_preview.png)
+![Day view mockup](https://github.com/SzepesiBalazs/SR-SportCalendar-Exercise/blob/exercise-2/MockUpImages/Day_preview.png)
 
-![Event detail view mockup](https://github.com/SzepesiBalazs/SR-SportCalendar-Exercise/blob/exercise-1/MockUpImages/Event_detail_preview.png)
+![Event detail view mockup](https://github.com/SzepesiBalazs/SR-SportCalendar-Exercise/blob/exercise-2/MockUpImages/Event_detail_preview.png)
 
 - Include a link to each event to drive to a detail page.
 - Add an icon on hover to indicate the details view.

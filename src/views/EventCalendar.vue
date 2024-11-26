@@ -15,15 +15,19 @@
         <p class="text-5xl col-span-1 text-left m-2">{{ dayObject.nameOfDay }}</p>
         <p class="text-5xl col-span-1 text-right m-2">{{ dayObject.day }}</p>
       </div>
-
       <div class="row-span-2 place-content-center">
-        <div class="grid grid-cols-5" v-for="(event, index) in dayObject.events" :key="index">
-          <p class="cols-span-1 font-bold place-content-center">
-            {{ formatingUTCTime(event.timeVenueUTC) }}
-          </p>
-          <p class="col-span-4">
-            {{ validateCompetitor(event.homeTeam) }} vs {{ validateCompetitor(event.awayTeam) }}
-          </p>
+        <div v-for="(event, index) in dayObject.events" :key="index">
+          <RouterLink
+            class="grid grid-cols-5"
+            :to="{ name: 'event-details', params: { id: event.id } }"
+          >
+            <p class="cols-span-1 font-bold place-content-center">
+              {{ formatingUTCTime(event.timeVenueUTC) }}
+            </p>
+            <p class="col-span-4">
+              {{ validateCompetitor(event.homeTeam) }} vs {{ validateCompetitor(event.awayTeam) }}
+            </p>
+          </RouterLink>
         </div>
       </div>
     </div>
@@ -34,6 +38,7 @@
 import { ref, computed, onMounted } from 'vue'
 import sportData from '../sportData.json'
 import dayjs from 'dayjs'
+import { RouterLink } from 'vue-router'
 export default {
   setup() {
     const calendarData = ref(sportData)
