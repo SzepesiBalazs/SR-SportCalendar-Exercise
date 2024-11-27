@@ -1,8 +1,19 @@
 <template>
-  <div
-    class="box-content h-32 mb-8 border-4 place-content-center text-center bg-blue-200 rounded-md"
-  >
-    <h1>{{ currentEvent }}</h1>
+  <div class="pt-6 pl-10 pr-10 pb-8">
+    <div class="row-span-1 grid grid-cols-2">
+      <h1>{{ currentEvent.dateVenue }}</h1>
+      <h2>{{ currentEvent.timeVenueUTC }}</h2>
+    </div>
+    <div class="row-span-1 grid grid-cols-3">
+      <p>{{ currentEvent.homeTeam.officialName }}</p>
+      <p>vs</p>
+      <p>{{ currentEvent.awayTeam.officialName }}</p>
+    </div>
+    <div>
+      <p>{{ currentEvent.originCompetitionName }}</p>
+      <p>{{ currentEvent.stage.id }}</p>
+      <p>{{ currentEvent.stadium }}</p>
+    </div>
   </div>
 </template>
 
