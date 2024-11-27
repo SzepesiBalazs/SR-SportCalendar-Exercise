@@ -11,10 +11,12 @@ The goal of this exercise is to assess your understanding of basic frontend prog
 ## Documentation
 
 > [!IMPORTANT]
-> Install Vue application.
+
+### Make sure you have a correct node version
 
 ```
-npm create vue@latest
+npm install -g npm@latest
+nvm install 18
 ```
 
 ### Run installation
