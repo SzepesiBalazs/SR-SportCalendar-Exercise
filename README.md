@@ -16,7 +16,7 @@ The goal of this exercise is to assess your understanding of basic frontend prog
 
 ```
 npm install -g npm@latest
-nvm install 18
+nvm install 20
 ```
 
 ### Run installation
@@ -66,4 +66,4 @@ npx tailwindcss init
 - Include a link to each event to drive to a detail page.
 - Add an icon on hover to indicate the details view.
 - Add a new page where we display the data.
-- Add a "back" button to return to calendar view.
+

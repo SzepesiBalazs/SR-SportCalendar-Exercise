@@ -1,14 +1,14 @@
 export default class EventDetails {
   constructor(
-    matchDate = 'To Be Announced',
-    startTime = 'null',
+    matchDate = 'Date To Be Announced',
+    startTime = 'Time To Be Announced',
     stadium = null,
-    homeTeam = 'Unknown',
-    awayTeam = 'Unknown',
+    homeTeam = 'Unknown Team',
+    awayTeam = 'Unknown Team',
     stageOfCompetetion = null,
     nameOfCompetetion = null,
-    countryOfHomeTeam = 'Unknown',
-    countryOfAwayTeam = 'Unknown',
+    countryOfHomeTeam = 'Unknown Country',
+    countryOfAwayTeam = 'Unknown Country',
   ) {
     this.matchDate = matchDate
     this.startTime = startTime
