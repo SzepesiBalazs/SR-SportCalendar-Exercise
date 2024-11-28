@@ -11,10 +11,12 @@ The goal of this exercise is to assess your understanding of basic frontend prog
 ## Documentation
 
 > [!IMPORTANT]
-> Install Vue application.
+
+### Make sure you have a correct node version
 
 ```
-npm create vue@latest
+npm install -g npm@latest
+nvm install 20
 ```
 
 ### Run installation
@@ -41,3 +43,27 @@ npm run dev
 npm install -D tailwindcss
 npx tailwindcss init
 ```
+
+# Exercise-1
+
+![Calendar view mockup](https://github.com/SzepesiBalazs/SR-SportCalendar-Exercise/blob/exercise-1/MockUpImages/Calender_preview.png)
+
+- Create navigation with calendar view on page load.
+- Create new page for "Add event".
+- Create a function to get current month and days dynamically.
+- Create a header element to display year and current month.
+- Create a body element to display day and events.
+- Adds day elements to grid layout using Tailwind.
+- Style a single day with the date and events.
+- Adapt styling for responsiveness
+
+# Exercise-2
+
+![Day view mockup](https://github.com/SzepesiBalazs/SR-SportCalendar-Exercise/blob/exercise-2/MockUpImages/Day_preview.png)
+
+![Event detail view mockup](https://github.com/SzepesiBalazs/SR-SportCalendar-Exercise/blob/exercise-2/MockUpImages/Event_detail_preview.png)
+
+- Include a link to each event to drive to a detail page.
+- Add an icon on hover to indicate the details view.
+- Add a new page where we display the data.
+
