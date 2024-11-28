@@ -38,9 +38,17 @@
 import { ref, computed, onMounted } from 'vue'
 import sportData from '../sportData.json'
 import dayjs from 'dayjs'
-import { RouterLink } from 'vue-router'
+
 export default {
-  setup() {
+  props: {
+    data: {
+      type: Array,
+      default: () => [],
+    },
+  },
+
+  setup(props) {
+    const data = computed(() => props.data)
     const calendarData = ref(sportData)
     const daysArray = ref([])
     const currentMonth = computed(() =>
@@ -78,7 +86,7 @@ export default {
       return time.slice(0, -3)
     }
 
-    return { currentMonth, daysArray, validateCompetitor, formatingUTCTime }
+    return { data, currentMonth, daysArray, validateCompetitor, formatingUTCTime }
   },
 }
 </script>
