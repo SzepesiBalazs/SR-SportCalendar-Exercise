@@ -127,9 +127,12 @@
       </div>
     </div>
     <div class="mt-6 flex items-center gap-x-6">
-      <button type="button" @click="cancel" class="text-sm/6 font-semibold text-gray-900">Cancel</button>
+      <button type="button" @click="cancel" class="text-sm/6 font-semibold text-gray-900">
+        Cancel
+      </button>
       <button
         type="submit"
+        @click="submit"
         class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
       >
         Submit
@@ -154,12 +157,21 @@ export default {
     const data = computed(() => props.data)
 
     const eventDetail = ref(new EventDetails())
-    
+
     const cancel = () => {
       eventDetail.value = new EventDetails()
     }
-    
-    return { data, eventDetail, cancel }
+
+    const submit = (event) => {
+      event.preventDefault()
+
+      const newEventDetailID = data.value.length +1
+      eventDetail.value.id = newEventDetailID
+
+      data.value.push(eventDetail.value)
+    }
+
+    return { data, eventDetail, cancel, submit }
   },
 }
 </script>
