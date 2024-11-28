@@ -14,6 +14,7 @@
                   type="text"
                   class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
                   placeholder="Select date"
+                  v-model="eventDetail.matchDate"
                 />
               </div>
             </div>
@@ -26,6 +27,7 @@
                   type="text"
                   class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
                   placeholder="Select start time"
+                  v-model="eventDetail.startTime"
                 />
               </div>
             </div>
@@ -38,6 +40,7 @@
                   type="text"
                   class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
                   placeholder="Add home country"
+                  v-model="eventDetail.countryOfHomeTeam"
                 />
               </div>
             </div>
@@ -50,6 +53,7 @@
                   type="text"
                   class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
                   placeholder="Add home competitor"
+                  v-model="eventDetail.homeTeam"
                 />
               </div>
             </div>
@@ -62,6 +66,7 @@
                   type="text"
                   class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
                   placeholder="Add away country"
+                  v-model="eventDetail.countryOfAwayTeam"
                 />
               </div>
             </div>
@@ -74,6 +79,7 @@
                   type="text"
                   class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
                   placeholder="Add away competitor"
+                  v-model="eventDetail.awayTeam"
                 />
               </div>
             </div>
@@ -86,6 +92,7 @@
                   type="text"
                   class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
                   placeholder="Add competetion"
+                  v-model="eventDetail.nameOfCompetetion"
                 />
               </div>
             </div>
@@ -98,6 +105,7 @@
                   type="text"
                   class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
                   placeholder="Add stage"
+                  v-model="eventDetail.stageOfCompetetion"
                 />
               </div>
             </div>
@@ -110,6 +118,7 @@
                   type="text"
                   class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
                   placeholder="Add stadium"
+                  v-model="eventDetail.stadium"
                 />
               </div>
             </div>
@@ -118,19 +127,20 @@
       </div>
     </div>
     <div class="mt-6 flex items-center gap-x-6">
-      <button type="button" class="text-sm/6 font-semibold text-gray-900">Cancel</button>
+      <button type="button" @click="cancel" class="text-sm/6 font-semibold text-gray-900">Cancel</button>
       <button
         type="submit"
         class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
       >
-        Save
+        Submit
       </button>
     </div>
   </form>
 </template>
 
 <script lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue'
+import EventDetails from './EventDetails.ts'
 
 export default {
   props: {
@@ -143,7 +153,13 @@ export default {
   setup(props) {
     const data = computed(() => props.data)
 
-    return { data }
+    const eventDetail = ref(new EventDetails())
+    
+    const cancel = () => {
+      eventDetail.value = new EventDetails()
+    }
+    
+    return { data, eventDetail, cancel }
   },
 }
 </script>
