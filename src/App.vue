@@ -106,8 +106,9 @@ export default {
 
     onBeforeMount(() => {
       modifiedData.value = data.value.data.map((e) => {
-        
+
         return new EventDetails(
+          e?.id,
           e?.dateVenue,
           e?.timeVenueUTC,
           e?.stadium,

@@ -1,5 +1,6 @@
 export default class EventDetails {
   constructor(
+    id = null,
     matchDate = 'Date To Be Announced',
     startTime = 'Time To Be Announced',
     stadium = null,
@@ -10,6 +11,7 @@ export default class EventDetails {
     countryOfHomeTeam = 'Unknown Country',
     countryOfAwayTeam = 'Unknown Country',
   ) {
+    this.id = id
     this.matchDate = matchDate
     this.startTime = startTime
     this.stadium = stadium

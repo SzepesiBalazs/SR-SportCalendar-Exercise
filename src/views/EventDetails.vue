@@ -36,6 +36,7 @@ export default {
       const localEvent = data.data.find((e) => parseInt(e.id) === parseInt(eventId.value))
 
       currentEvent.value = new EventDetails(
+        localEvent?.id,
         localEvent?.dateVenue,
         localEvent?.timeVenueUTC,
         localEvent?.stadium,
