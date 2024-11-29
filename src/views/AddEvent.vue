@@ -165,7 +165,7 @@ export default {
     const submit = (event) => {
       event.preventDefault()
 
-      const newEventDetailID = data.value.length +1
+      const newEventDetailID = data.value.length + 1
       eventDetail.value.id = newEventDetailID
 
       data.value.push(eventDetail.value)

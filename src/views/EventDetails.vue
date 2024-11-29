@@ -41,11 +41,9 @@ export default {
 
     onBeforeMount(() => {
       currentEvent.value = data.value.find((e) => parseInt(e.id) === parseInt(eventId.value))
-
     })
 
     return { currentEvent }
   },
 }
 </script>
-
