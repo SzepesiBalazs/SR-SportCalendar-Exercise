@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="wrapper">
-      <nav class="bg-gray-800">
+      <nav class="bg-indigo-800">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div class="relative flex h-16 items-center justify-between">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -47,7 +47,7 @@
               <div class="flex shrink-0 items-center">
                 <img
                   class="h-8 w-auto"
-                  src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
+                  src="https://cdn-ilbncnn.nitrocdn.com/DPmYvNpoKujWQybCKacXenezezvtijDX/assets/images/source/rev-e79879c/sportradar.com/wp-content/uploads/2023/11/Sportradar-Brand-Line_Color_Black.svg"
                   alt="Your Company"
                 />
               </div>
@@ -84,7 +84,7 @@
     </div>
   </header>
   <body>
-    <div class="pt-6 pl-10 pr-10 pb-8">
+    <div class="pt-6 pl-10 pr-10 pb-8 bg-indigo-100 min-h-screen">
       <RouterView :data="modifiedData"></RouterView>
     </div>
   </body>

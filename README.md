@@ -30,6 +30,12 @@ npm install
 npm run dev
 ```
 
+### Run tests
+
+```
+npm run test:unit
+```
+
 # Exercise-1
 
 ![Calendar view mockup](https://github.com/SzepesiBalazs/SR-SportCalendar-Exercise/blob/exercise-1/MockUpImages/Calender_preview.png)

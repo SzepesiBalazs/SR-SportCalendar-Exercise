@@ -1,20 +1,20 @@
 <template>
-  <div class="pt-6 pl-10 pr-10 pb-8">
-    <div class="row-span-1 grid grid-cols-2 text-2xl bg-blue-200">
-      <h1 class="text-right pr-3">{{ currentEvent.matchDate }}</h1>
-      <h2 class="text-left">{{ currentEvent.startTime }}</h2>
+  <div class="pt-6 pl-10 pr-10 pb-8 text-center">
+    <div class="row-span-1 grid grid-cols-2 text-2xl pb-20">
+      <h1 class="lg:text-right pr-3 font-bold">{{ currentEvent.matchDate }}</h1>
+      <h2 class="lg:text-left pl-3 font-bold">{{ currentEvent.startTime }}</h2>
     </div>
-    <div class="row-span-1 grid grid-cols-5 text-2xl bg-gray-200">
-      <p class="text-right font-bold">({{ currentEvent.countryOfHomeTeam }})</p>
-      <p class="text-right font-semibold">{{ currentEvent.homeTeam }}</p>
-      <p class="text-center font-bold">vs</p>
-      <p class="text-left font-semibold">{{ currentEvent.awayTeam }}</p>
-      <p class="text-left font-bold">({{ currentEvent.countryOfAwayTeam }})</p>
+    <div class="row-span-1 grid grid-cols-5 text-2xl pb-20">
+      <p class="lg:text-right font-bold uppercase">({{ currentEvent.countryOfHomeTeam }})</p>
+      <p class="lg:text-right font-bold uppercase">{{ currentEvent.homeTeam }}</p>
+      <p class="lg:text-center font-semibold uppercase">vs</p>
+      <p class="lg:text-left font-bold uppercase">{{ currentEvent.awayTeam }}</p>
+      <p class="lg:text-left font-bold uppercase">({{ currentEvent.countryOfAwayTeam }})</p>
     </div>
     <div>
-      <p class="text-center bg-blue-200 font-extrabold">{{ currentEvent.nameOfCompetetion }}</p>
-      <p class="text-center bg-blue-200 font-semibold">{{ currentEvent.stageOfCompetetion }}</p>
-      <p class="text-center bg-blue-200 font-semibold">{{ currentEvent.stadium }}</p>
+      <p class="lg:text-center font-extrabold pb-1">{{ currentEvent.nameOfCompetetion }}</p>
+      <p class="lg:text-center font-semibold">{{ currentEvent.stageOfCompetetion }}</p>
+      <p class="lg:text-center font-semibold">{{ currentEvent.stadium }}</p>
     </div>
   </div>
 </template>
