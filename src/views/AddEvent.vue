@@ -11,7 +11,7 @@
               >
                 <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm"></span>
                 <input
-                  type="text"
+                  type="date"
                   class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
                   placeholder="Select date"
                   v-model="eventDetail.matchDate"
@@ -24,7 +24,7 @@
               >
                 <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm"></span>
                 <input
-                  type="text"
+                  type="time"
                   class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
                   placeholder="Select start time"
                   v-model="eventDetail.startTime"

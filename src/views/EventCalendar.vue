@@ -81,7 +81,7 @@ export default {
     }
 
     const formatingUTCTime = (time) => {
-      return time.slice(0, -3)
+      return time.slice(0, 5)
     }
 
     return { data, currentMonth, daysArray, validateCompetitor, formatingUTCTime }
