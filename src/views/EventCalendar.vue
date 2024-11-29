@@ -3,11 +3,11 @@
     class="box-content h-24 mb-8 place-content-center text-center rounded" >
     <p class="text-5xl font-extrabold">{{ currentMonth }}</p>
   </div>
-  <div class="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 place-items-center">
+  <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 place-items-center">
     <div
       v-for="dayObject in daysArray"
       :key="dayObject.day"
-      class="box-content md:h-48 md:w-48 lg:h-64 lg:w-64 sm:h-64 sm:w-64 m-2 border-4 border-indigo-600 grid grid-rows-3 hover:scale-105 rounded-2xl"
+      class="box-content w-64 h-64 md:h-48 md:w-48 lg:h-48 lg:w-48 sm:h-64 sm:w-64 m-2 border-4 border-indigo-600 grid grid-rows-3 hover:scale-105 rounded-2xl"
       :class="[dayObject.events.length ? 'bg-white' : 'bg-gray-200']"
     >
       <div class="row-span-1 bg-indigo-600 rounded-t grid grid-cols-2">
@@ -23,7 +23,7 @@
             <p class="cols-span-1 font-bold place-content-center pl-1">
               {{ formatingUTCTime(event.startTime) }}
             </p>
-            <p class="col-span-4 text-xs font-bold uppercase pt-1">
+            <p class="col-span-4 text-xs font-bold uppercase pt-1 lg:ml-3">
               {{ validateCompetitor(event.homeTeam) }} vs {{ validateCompetitor(event.awayTeam) }}
             </p>
           </RouterLink>
