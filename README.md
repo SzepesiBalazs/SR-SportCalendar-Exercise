@@ -11,37 +11,23 @@ The goal of this exercise is to assess your understanding of basic frontend prog
 ## Documentation
 
 > [!IMPORTANT]
-
-### Make sure you have a correct node version
+> Make sure you have a correct node version. 
 
 ```
 npm install -g npm@latest
 nvm install 20
 ```
 
-### Run installation
+### Run installation.
 
 ```
 npm install
 ```
 
-### Format code with Prettier
-
-```
-npm run format
-```
-
-### Start the application and open the local host in your browser
+### Start the application and open the local host in your browser.
 
 ```
 npm run dev
-```
-
-### Download and install Tailwind
-
-```
-npm install -D tailwindcss
-npx tailwindcss init
 ```
 
 # Exercise-1
