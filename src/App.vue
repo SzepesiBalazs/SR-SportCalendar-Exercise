@@ -94,7 +94,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import sportdata from './sportData.json'
 import { onBeforeMount, ref } from 'vue'
-import EventDetails from './views/EventDetails.ts';
+import EventDetails from './views/EventDetails.ts'
 export default {
   components: {
     RouterLink,
@@ -106,7 +106,6 @@ export default {
 
     onBeforeMount(() => {
       modifiedData.value = data.value.data.map((e) => {
-
         return new EventDetails(
           e?.id,
           e?.dateVenue,

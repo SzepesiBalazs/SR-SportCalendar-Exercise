@@ -77,7 +77,7 @@ export default {
     })
 
     const validateCompetitor = (team) => {
-      return team?? 'Unknown'
+      return team ?? 'Unknown'
     }
 
     const formatingUTCTime = (time) => {
