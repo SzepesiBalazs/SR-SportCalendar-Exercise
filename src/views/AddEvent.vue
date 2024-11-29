@@ -5,6 +5,27 @@
         <div class="pb-12">
           <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 grid-cols-6">
             <div class="col-span-4">
+              <div
+                v-if="showsSuccessMessage"
+                class="bg-green-500 text-white p-4 rounded-lg shadow-md flex items-center space-x-2"
+              >
+                <svg
+                  class="w-5 h-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+                <span>Successfully added</span>
+              </div>
+
               <label for="username" class="block text/6 font-medium text-gray-900"></label>
               <div class="mt-2">
                 <div
@@ -164,6 +185,8 @@ export default {
 
     const eventDetail = ref(new EventDetails())
 
+    const showsSuccessMessage = ref(false)
+
     const cancel = () => {
       eventDetail.value = new EventDetails()
     }
@@ -175,9 +198,11 @@ export default {
       eventDetail.value.id = newEventDetailID
 
       data.value.push(eventDetail.value)
+      showsSuccessMessage.value = true
     }
 
-    return { data, eventDetail, cancel, submit }
+    
+    return { showsSuccessMessage, data, eventDetail, cancel, submit }
   },
 }
 </script>
