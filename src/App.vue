@@ -84,7 +84,7 @@
     </div>
   </header>
   <body>
-    <div class="pt-6 pl-10 pr-10 pb-8">
+    <div class="pt-6 pl-10 pr-10 pb-8 bg-indigo-100 min-h-screen">
       <RouterView :data="modifiedData"></RouterView>
     </div>
   </body>
