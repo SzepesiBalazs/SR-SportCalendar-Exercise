@@ -3,6 +3,7 @@ import AddEvent from '../../views/AddEvent.vue'
 import { mount } from '@vue/test-utils'
 import EventDetails from '../../views/EventDetails'
 import EventCalendar from '../../views/EventCalendar.vue'
+import App from '../../App.vue'
 
 describe('AddEvent.vue', () => {
   it('new added to the data on submit', async () => {
@@ -56,3 +57,13 @@ describe('EventCalendar.vue', () => {
     expect(EventCalendarVueTemplate.vm.formatingUTCTime('15:00')).toBe('15:00')
   })
 })
+
+//App.vue throws lots of error onMount
+
+// describe('App.vue', () => {
+//   it('tests modified data to contain event details', () => {
+//     const AppVueTemplate = mount(App)
+  
+//     expect(AppVueTemplate.vm.modifiedData[0]).toBeTypeOf(EventDetails)
+//   })
+// })
