@@ -22,7 +22,7 @@
             :to="{ name: 'event-details', params: { id: event.id } }"
           >
             <p class="cols-span-1 font-bold place-content-center">
-              {{ formatingUTCTime(event.timeVenueUTC) }}
+              {{ formatingUTCTime(event.startTime) }}
             </p>
             <p class="col-span-4">
               {{ validateCompetitor(event.homeTeam) }} vs {{ validateCompetitor(event.awayTeam) }}
@@ -36,12 +36,18 @@
 
 <script lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import sportData from '../sportData.json'
 import dayjs from 'dayjs'
-import { RouterLink } from 'vue-router'
+
 export default {
-  setup() {
-    const calendarData = ref(sportData)
+  props: {
+    data: {
+      type: Array,
+      default: () => [],
+    },
+  },
+
+  setup(props) {
+    const data = computed(() => props.data)
     const daysArray = ref([])
     const currentMonth = computed(() =>
       new Date().toLocaleString('default', { year: 'numeric', month: 'long' }),
@@ -55,7 +61,7 @@ export default {
       for (let day = 1; day <= daysInMonth; day++) {
         const date = dayjs().date(day).format('YYYY-MM-DD')
         const test = dayjs(date)
-        const events = calendarData.value.data.filter((data) => data.dateVenue === date)
+        const events = data.value.filter((data) => data.matchDate === date)
 
         daysArray.value.push({
           day: day.toString().padStart(2, '0'),
@@ -71,14 +77,14 @@ export default {
     })
 
     const validateCompetitor = (team) => {
-      return team?.officialName ?? 'Unknown'
+      return team?? 'Unknown'
     }
 
     const formatingUTCTime = (time) => {
-      return time.slice(0, -3)
+      return time.slice(0, 5)
     }
 
-    return { currentMonth, daysArray, validateCompetitor, formatingUTCTime }
+    return { data, currentMonth, daysArray, validateCompetitor, formatingUTCTime }
   },
 }
 </script>

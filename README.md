@@ -67,3 +67,11 @@ npx tailwindcss init
 - Add an icon on hover to indicate the details view.
 - Add a new page where we display the data.
 
+# Exercise-3
+
+![Add Event mockup](https://github.com/SzepesiBalazs/SR-SportCalendar-Exercise/blob/exercise-3/MockUpImages/Add_Event_preview.png)
+
+- Adds a form with input fields for every criteria of event details.
+- Adds submit button which pushes the new event to the sportdata.
+- Adds cancel button which clears the input fields.
+- Makes improvement on data array to follow the event details structure.

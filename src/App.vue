@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
   <header>
     <div class="wrapper">
@@ -89,7 +85,44 @@ import { RouterLink, RouterView } from 'vue-router'
   </header>
   <body>
     <div class="pt-6 pl-10 pr-10 pb-8">
-      <RouterView></RouterView>
+      <RouterView :data="modifiedData"></RouterView>
     </div>
   </body>
 </template>
+
+<script lang="ts">
+import { RouterLink, RouterView } from 'vue-router'
+import sportdata from './sportData.json'
+import { onBeforeMount, ref } from 'vue'
+import EventDetails from './views/EventDetails.ts';
+export default {
+  components: {
+    RouterLink,
+    RouterView,
+  },
+  setup() {
+    const data = ref(sportdata)
+    const modifiedData = ref([])
+
+    onBeforeMount(() => {
+      modifiedData.value = data.value.data.map((e) => {
+
+        return new EventDetails(
+          e?.id,
+          e?.dateVenue,
+          e?.timeVenueUTC,
+          e?.stadium,
+          e?.homeTeam?.officialName,
+          e?.awayTeam?.officialName,
+          e?.stage?.name,
+          e?.originCompetitionName,
+          e?.homeTeam?.teamCountryCode,
+          e?.awayTeam?.teamCountryCode,
+        )
+      })
+    })
+
+    return { modifiedData }
+  },
+}
+</script>

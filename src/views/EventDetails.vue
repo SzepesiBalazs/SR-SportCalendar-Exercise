@@ -26,29 +26,26 @@ import { useRoute } from 'vue-router'
 import EventDetails from './EventDetails'
 
 export default {
-  setup() {
+  props: {
+    data: {
+      type: Array,
+      default: () => [],
+    },
+  },
+
+  setup(props) {
     const router = useRoute()
-    const data = reactive(sportData)
+    const data = computed(() => props.data)
     const eventId = computed(() => router.params.id)
     const currentEvent = ref(new EventDetails())
 
     onBeforeMount(() => {
-      const localEvent = data.data.find((e) => parseInt(e.id) === parseInt(eventId.value))
+      currentEvent.value = data.value.find((e) => parseInt(e.id) === parseInt(eventId.value))
 
-      currentEvent.value = new EventDetails(
-        localEvent?.dateVenue,
-        localEvent?.timeVenueUTC,
-        localEvent?.stadium,
-        localEvent?.homeTeam?.officialName,
-        localEvent?.awayTeam?.officialName,
-        localEvent?.stage?.name,
-        localEvent?.originCompetitionName,
-        localEvent?.homeTeam?.teamCountryCode,
-        localEvent?.awayTeam?.teamCountryCode,
-      )
     })
 
     return { currentEvent }
   },
 }
 </script>
+
