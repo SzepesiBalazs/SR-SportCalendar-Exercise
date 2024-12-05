@@ -27,7 +27,7 @@ describe('AddEvent.vue', () => {
     const cancelButton = addEventVueTemplate.find('button[type="button"]')
     await cancelButton.trigger('click')
 
-    const afterCancelData = new EventDetails()
+    const afterCancelData = addEventVueTemplate.vm.eventDetail
 
     expect(beforeCancelData).not.toBe(afterCancelData)
   })
@@ -42,7 +42,7 @@ describe('EventCalendar.vue', () => {
     expect(EventCalendarVueTemplate.vm.daysArray[0]).toHaveProperty('events')
     expect(EventCalendarVueTemplate.vm.daysArray[0]).toHaveProperty('nameOfDay')
   })
-
+ 
   it('should return unknown if team is not defined', () => {
     const EventCalendarVueTemplate = mount(EventCalendar)
 

@@ -47,7 +47,7 @@ npm run test:unit
 - Create a body element to display day and events.
 - Adds day elements to grid layout using Tailwind.
 - Style a single day with the date and events.
-- Adapt styling for responsiveness
+- Adapt styling for responsiveness.
 
 # Exercise-2
 

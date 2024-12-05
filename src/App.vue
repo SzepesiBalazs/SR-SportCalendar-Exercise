@@ -95,12 +95,15 @@ import { RouterLink, RouterView } from 'vue-router'
 import sportdata from './sportData.json'
 import { onBeforeMount, ref } from 'vue'
 import EventDetails from './views/EventDetails.ts'
+import { useStore } from 'vuex'
 export default {
   components: {
     RouterLink,
     RouterView,
   },
   setup() {
+
+    const store = useStore()
     const data = ref(sportdata)
     const modifiedData = ref([])
 
@@ -119,6 +122,7 @@ export default {
           e?.awayTeam?.teamCountryCode,
         )
       })
+      store.commit('storeSportData', modifiedData.value)
     })
 
     return { modifiedData }
