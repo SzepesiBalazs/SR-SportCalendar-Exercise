@@ -25,7 +25,6 @@ import { useRoute } from 'vue-router'
 import EventDetails from './EventDetails'
 
 export default {
-
   setup() {
     const router = useRoute()
     const data = computed(() => JSON.parse(localStorage.getItem('sportData')))

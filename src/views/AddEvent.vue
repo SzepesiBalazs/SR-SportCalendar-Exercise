@@ -173,9 +173,7 @@ import { computed, ref } from 'vue'
 import EventDetails from './EventDetails.ts'
 
 export default {
-
   setup() {
-
     const data = computed(() => JSON.parse(localStorage.getItem('sportData')))
 
     const eventDetail = ref(new EventDetails())
@@ -197,7 +195,6 @@ export default {
       showsSuccessMessage.value = true
     }
 
-    
     return { showsSuccessMessage, data, eventDetail, cancel, submit }
   },
 }

@@ -6,14 +6,16 @@ import EventCalendar from '../../views/EventCalendar.vue'
 import App from '../../App.vue'
 
 describe('AddEvent.vue', () => {
+  localStorage.setItem('sportData', '[]')
+
   it('new added to the data on submit', async () => {
     const addEventVueTemplate = mount(AddEvent)
-    const oldLengthOfEventData = addEventVueTemplate.vm.data.length
+    const oldLengthOfEventData = addEventVueTemplate.vm.data?.length
 
     const submitButton = addEventVueTemplate.find('button[type="submit"]')
     await submitButton.trigger('click')
 
-    const newLengthOfEventData = addEventVueTemplate.vm.data.length
+    const newLengthOfEventData = addEventVueTemplate.vm.data?.length
 
     expect(oldLengthOfEventData + 1).toEqual(newLengthOfEventData)
   })
@@ -42,7 +44,7 @@ describe('EventCalendar.vue', () => {
     expect(EventCalendarVueTemplate.vm.daysArray[0]).toHaveProperty('events')
     expect(EventCalendarVueTemplate.vm.daysArray[0]).toHaveProperty('nameOfDay')
   })
- 
+
   it('should return unknown if team is not defined', () => {
     const EventCalendarVueTemplate = mount(EventCalendar)
 
@@ -63,7 +65,7 @@ describe('EventCalendar.vue', () => {
 // describe('App.vue', () => {
 //   it('tests modified data to contain event details', () => {
 //     const AppVueTemplate = mount(App)
-  
+
 //     expect(AppVueTemplate.vm.modifiedData[0]).toBeTypeOf(EventDetails)
 //   })
 // })
