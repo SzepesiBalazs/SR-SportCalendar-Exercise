@@ -173,15 +173,10 @@ import { computed, ref } from 'vue'
 import EventDetails from './EventDetails.ts'
 
 export default {
-  props: {
-    data: {
-      type: Array,
-      default: () => [],
-    },
-  },
 
-  setup(props) {
-    const data = computed(() => props.data)
+  setup() {
+
+    const data = computed(() => JSON.parse(localStorage.getItem('sportData')))
 
     const eventDetail = ref(new EventDetails())
 
@@ -198,6 +193,7 @@ export default {
       eventDetail.value.id = newEventDetailID
 
       data.value.push(eventDetail.value)
+      localStorage.setItem('sportData', JSON.stringify(data.value))
       showsSuccessMessage.value = true
     }
 

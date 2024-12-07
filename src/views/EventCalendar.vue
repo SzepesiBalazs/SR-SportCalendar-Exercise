@@ -33,14 +33,12 @@
 </template>
 
 <script lang="ts">
-import { ref, computed, onMounted, inject } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import dayjs from 'dayjs'
-import { useStore } from 'vuex'
 
 export default {
   setup() {
-    const store = useStore()
-    const data = computed(() => store.state.sportData)
+    const data = computed(() => JSON.parse(localStorage.getItem('sportData')))
     const daysArray = ref([])
     const currentMonth = computed(() =>
       new Date().toLocaleString('default', { year: 'numeric', month: 'long' }),

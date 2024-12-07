@@ -20,22 +20,15 @@
 </template>
 
 <script lang="ts">
-import { ref, computed, reactive, onBeforeMount } from 'vue'
-import sportData from '../sportData.json'
+import { ref, computed, onBeforeMount } from 'vue'
 import { useRoute } from 'vue-router'
 import EventDetails from './EventDetails'
 
 export default {
-  props: {
-    data: {
-      type: Array,
-      default: () => [],
-    },
-  },
 
-  setup(props) {
+  setup() {
     const router = useRoute()
-    const data = computed(() => props.data)
+    const data = computed(() => JSON.parse(localStorage.getItem('sportData')))
     const eventId = computed(() => router.params.id)
     const currentEvent = ref(new EventDetails())
 
