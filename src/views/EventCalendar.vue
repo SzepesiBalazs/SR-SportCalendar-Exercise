@@ -1,6 +1,5 @@
 <template>
-  <div
-    class="box-content h-24 mb-8 place-content-center text-center rounded" >
+  <div class="box-content h-24 mb-8 place-content-center text-center rounded">
     <p class="text-5xl font-extrabold">{{ currentMonth }}</p>
   </div>
   <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 place-items-center">
@@ -38,15 +37,8 @@ import { ref, computed, onMounted } from 'vue'
 import dayjs from 'dayjs'
 
 export default {
-  props: {
-    data: {
-      type: Array,
-      default: () => [],
-    },
-  },
-
-  setup(props) {
-    const data = computed(() => props.data)
+  setup() {
+    const data = computed(() => JSON.parse(localStorage.getItem('sportData')))
     const daysArray = ref([])
     const currentMonth = computed(() =>
       new Date().toLocaleString('default', { year: 'numeric', month: 'long' }),
@@ -59,14 +51,14 @@ export default {
 
       for (let day = 1; day <= daysInMonth; day++) {
         const date = dayjs().date(day).format('YYYY-MM-DD')
-        const test = dayjs(date)
+        const name = dayjs(date)
         const events = data.value.filter((data) => data.matchDate === date)
 
         daysArray.value.push({
           day: day.toString().padStart(2, '0'),
           date: date,
           events: events,
-          nameOfDay: test.format('ddd').toUpperCase(),
+          nameOfDay: name.format('ddd').toUpperCase(),
         })
       }
     }

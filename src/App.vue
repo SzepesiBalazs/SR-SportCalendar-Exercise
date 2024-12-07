@@ -47,7 +47,7 @@
               <div class="flex shrink-0 items-center">
                 <img
                   class="h-8 w-auto"
-                  src="https://cdn-ilbncnn.nitrocdn.com/DPmYvNpoKujWQybCKacXenezezvtijDX/assets/images/source/rev-e79879c/sportradar.com/wp-content/uploads/2023/11/Sportradar-Brand-Line_Color_Black.svg"
+                  src="https://cdn-ilbncnn.nitrocdn.com/DPmYvNpoKujWQybCKacXenezezvtijDX/assets/images/source/rev-f4476db/sportradar.com/wp-content/uploads/2023/11/Sportradar-Brand-Line_Color_Black.svg"
                   alt="Your Company"
                 />
               </div>
@@ -85,7 +85,7 @@
   </header>
   <body>
     <div class="pt-6 pl-10 pr-10 pb-8 bg-indigo-100 min-h-screen">
-      <RouterView :data="modifiedData"></RouterView>
+      <RouterView></RouterView>
     </div>
   </body>
 </template>
@@ -105,20 +105,25 @@ export default {
     const modifiedData = ref([])
 
     onBeforeMount(() => {
-      modifiedData.value = data.value.data.map((e) => {
-        return new EventDetails(
-          e?.id,
-          e?.dateVenue,
-          e?.timeVenueUTC,
-          e?.stadium,
-          e?.homeTeam?.officialName,
-          e?.awayTeam?.officialName,
-          e?.stage?.name,
-          e?.originCompetitionName,
-          e?.homeTeam?.teamCountryCode,
-          e?.awayTeam?.teamCountryCode,
-        )
-      })
+      const sportDataArray = JSON.parse(localStorage.getItem('sportData'))
+      if (!sportDataArray) {
+        modifiedData.value = data.value.data.map((e) => {
+          return new EventDetails(
+            e?.id,
+            e?.dateVenue,
+            e?.timeVenueUTC,
+            e?.stadium,
+            e?.homeTeam?.officialName,
+            e?.awayTeam?.officialName,
+            e?.stage?.name,
+            e?.originCompetitionName,
+            e?.homeTeam?.teamCountryCode,
+            e?.awayTeam?.teamCountryCode,
+          )
+        })
+
+        localStorage.setItem('sportData', JSON.stringify(modifiedData.value))
+      }
     })
 
     return { modifiedData }
