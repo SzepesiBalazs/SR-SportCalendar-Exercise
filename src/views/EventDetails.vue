@@ -15,27 +15,42 @@
       <p class="lg:text-center font-extrabold pb-1">{{ currentEvent.nameOfCompetetion }}</p>
       <p class="lg:text-center font-semibold">{{ currentEvent.stageOfCompetetion }}</p>
       <p class="lg:text-center font-semibold">{{ currentEvent.stadium }}</p>
+      <button
+        type="submit"
+        @click="deleteEvent"
+        class="rounded bg-red-600 mt-5 px-3 py-2 text font-semibold text-white shadow hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+      >
+        Delete
+      </button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { ref, computed, onBeforeMount } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import EventDetails from './EventDetails'
 
 export default {
   setup() {
-    const router = useRoute()
+    const router = useRouter()
+    const route = useRoute()
     const data = computed(() => JSON.parse(localStorage.getItem('sportData')))
     const eventId = computed(() => router.params.id)
     const currentEvent = ref(new EventDetails())
+
+    const deleteEvent = () => {
+      const findIndex = data.value.findIndex((e) => parseInt(e.id) === parseInt(eventId.value))
+      data.value.splice(findIndex, 1)
+      localStorage.setItem('sportData', JSON.stringify(data.value))
+      router.push('/')
+    }
 
     onBeforeMount(() => {
       currentEvent.value = data.value.find((e) => parseInt(e.id) === parseInt(eventId.value))
     })
 
-    return { currentEvent }
+    return { currentEvent, deleteEvent }
   },
 }
 </script>
