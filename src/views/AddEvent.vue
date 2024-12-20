@@ -189,13 +189,12 @@
 </template>
 
 <script lang="ts">
-import { computed, ref } from 'vue'
+import { onBeforeMount, ref } from 'vue'
 import EventDetails from './EventDetails.ts'
 
 export default {
   setup() {
-    const data = computed(() => JSON.parse(localStorage.getItem('sportData')))
-
+    const data = ref(null)
     const eventDetail = ref(new EventDetails())
 
     const showsSuccessMessage = ref(false)
@@ -204,6 +203,8 @@ export default {
 
     const cancel = () => {
       eventDetail.value = new EventDetails()
+      showsSuccessMessage.value = false
+      showErrorMessage.value = false
     }
 
     const submit = (event) => {
@@ -230,6 +231,11 @@ export default {
       return true
     }
 
+    onBeforeMount(() => {
+      const localData = localStorage.getItem('sportData')
+
+      if (localData) data.value = JSON.parse(localData)
+    })
     return { showsSuccessMessage, data, eventDetail, cancel, submit, showErrorMessage }
   },
 }
