@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="max-w-128 lg:ml-96">
+    <form class="max-w-128 lg:ml-96" name="addEventForm">
       <div class="space-y-12">
         <div class="pb-12">
           <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 grid-cols-6">
@@ -23,9 +23,28 @@
                     d="M5 13l4 4L19 7"
                   ></path>
                 </svg>
-                <span>Successfully added</span>
+                <span>Successfully added!</span>
               </div>
-
+              <div
+                v-if="showErrorMessage"
+                class="bg-red-500 text-white p-4 rounded-lg shadow-md flex items-center space-x-2"
+              >
+                <svg
+                  class="w-5 h-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="red"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+                <span>Error, match date is required!</span>
+              </div>
               <label for="username" class="block text/6 font-medium text-gray-900"></label>
               <div class="mt-2">
                 <div
@@ -37,6 +56,7 @@
                     class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text/6"
                     placeholder="Select date"
                     v-model="eventDetail.matchDate"
+                    name="dateField"
                   />
                 </div>
               </div>
@@ -169,33 +189,54 @@
 </template>
 
 <script lang="ts">
-import { computed, ref } from 'vue'
+import { onBeforeMount, ref } from 'vue'
 import EventDetails from './EventDetails.ts'
 
 export default {
   setup() {
-    const data = computed(() => JSON.parse(localStorage.getItem('sportData')))
-
+    const data = ref(null)
     const eventDetail = ref(new EventDetails())
 
     const showsSuccessMessage = ref(false)
 
+    const showErrorMessage = ref(false)
+
     const cancel = () => {
       eventDetail.value = new EventDetails()
+      showsSuccessMessage.value = false
+      showErrorMessage.value = false
     }
 
     const submit = (event) => {
       event.preventDefault()
+      const isValidated = validateForm()
+      if (isValidated) {
+        const newEventDetailID = data.value.length + 1
+        eventDetail.value.id = newEventDetailID
 
-      const newEventDetailID = data.value.length + 1
-      eventDetail.value.id = newEventDetailID
-
-      data.value.push(eventDetail.value)
-      localStorage.setItem('sportData', JSON.stringify(data.value))
-      showsSuccessMessage.value = true
+        data.value.push(eventDetail.value)
+        localStorage.setItem('sportData', JSON.stringify(data.value))
+        showsSuccessMessage.value = true
+        showErrorMessage.value = false
+      } else {
+        showErrorMessage.value = true
+      }
     }
 
-    return { showsSuccessMessage, data, eventDetail, cancel, submit }
+    const validateForm = () => {
+      let x = document.forms['addEventForm']['dateField'].value
+      if (x === '') {
+        return false
+      }
+      return true
+    }
+
+    onBeforeMount(() => {
+      const localData = localStorage.getItem('sportData')
+
+      if (localData) data.value = JSON.parse(localData)
+    })
+    return { showsSuccessMessage, data, eventDetail, cancel, submit, showErrorMessage }
   },
 }
 </script>

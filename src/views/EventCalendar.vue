@@ -33,12 +33,12 @@
 </template>
 
 <script lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onBeforeMount } from 'vue'
 import dayjs from 'dayjs'
 
 export default {
   setup() {
-    const data = computed(() => JSON.parse(localStorage.getItem('sportData')))
+    const data = ref(null)
     const daysArray = ref([])
     const currentMonth = computed(() =>
       new Date().toLocaleString('default', { year: 'numeric', month: 'long' }),
@@ -63,7 +63,11 @@ export default {
       }
     }
 
-    onMounted(() => {
+    onBeforeMount(() => {
+      const localData = localStorage.getItem('sportData')
+      if (localData) {
+        data.value = JSON.parse(localData)
+      }
       generateDaysOfMonths()
     })
 

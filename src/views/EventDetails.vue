@@ -35,7 +35,7 @@ export default {
   setup() {
     const router = useRouter()
     const route = useRoute()
-    const data = computed(() => JSON.parse(localStorage.getItem('sportData')))
+    const data = ref(null)
     const eventId = computed(() => route.params.id)
     const currentEvent = ref(new EventDetails())
 
@@ -47,7 +47,16 @@ export default {
     }
 
     onBeforeMount(() => {
-      currentEvent.value = data.value.find((e) => parseInt(e.id) === parseInt(eventId.value))
+      const localData = localStorage.getItem('sportData')
+
+      if (localData) {
+        data.value = JSON.parse(localData)
+
+        const localEvent = data.value.find((e) => parseInt(e.id) === parseInt(eventId.value))
+        if (localEvent) {
+          currentEvent.value = localEvent
+        }
+      }
     })
 
     return { currentEvent, deleteEvent }
