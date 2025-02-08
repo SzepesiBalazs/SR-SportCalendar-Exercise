@@ -11,6 +11,6 @@
     "strict": true,
     "types": ["node", "vue"]
   },
-  "include": ["env.d.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["env.d.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/main.js"],
   "exclude": ["node_modules"]
 }
