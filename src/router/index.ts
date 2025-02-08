@@ -4,7 +4,7 @@ import AddEvent from '../views/AddEvent.vue'
 import EventDetails from '../views/EventDetails.vue'
 
 const router = createRouter({
-  history: createWebHistory('/'),
+  history: createWebHistory('/sport-calendar/'),
   routes: [
     {
       path: '/',
@@ -23,7 +23,5 @@ const router = createRouter({
     },
   ],
 })
-
-
 
 export default router
