@@ -5,11 +5,7 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "types": ["node"]
   },
-  "include": [
-    "vite.config.ts",
-    "vitest.config.ts",
-    "playwright.config.ts",
-    "vue-tsc.d.ts"
-  ]
+  "include": ["vite.config.ts", "vitest.config.ts", "vue-tsc.d.ts"]
 }
